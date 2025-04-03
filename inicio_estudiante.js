@@ -137,3 +137,11 @@ function cerrarSesion() {
         return false; // Evita la redirección
     }
 }
+document.getElementById("search").addEventListener("keyup", function() {
+    let filter = this.value.toLowerCase();
+    let rows = document.querySelectorAll("#table-body tr");
+    rows.forEach(row => {
+        let text = row.innerText.toLowerCase();
+        row.style.display = text.includes(filter) ? "" : "none";
+    });
+});
